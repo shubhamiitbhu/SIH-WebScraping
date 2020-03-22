@@ -17,7 +17,7 @@ dataframe = []
 len=0
 for key in data:
     print("Scraping for " + key + " " + str(data_len-len) + " to go")
-    train_details = scrapper.scraping("AADR")
+    train_details = scrapper.scraping(key)
     results[key]=train_details
     len=len+1
     
