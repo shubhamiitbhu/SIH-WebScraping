@@ -25,10 +25,15 @@ for key in data:
     train_details = scrapper.scraping(key)
     results[key]=train_details
     sheet1.write(len, 0, key)
-    row_len=0
+    row_len=1
     for i in train_details:
-        row_len +=1
+        if row_len%250 == 0:
+            len = len+1
+            sheet1.write(len,0,key)
+            row_len=1
+
         sheet1.write(len, row_len, str({i :train_details[i]}))
+        row_len += 1
 
     len=len+1
     wb.save('results.xls') 
